@@ -1,6 +1,7 @@
 "use client"
 import { Inter } from "next/font/google";
 import "./globals.css";
+import 'bootstrap/dist/css/bootstrap.css'
 import { useReducer } from "react";
 import { reducer } from '../redux/reducer'
 import { init } from '../redux/init'
