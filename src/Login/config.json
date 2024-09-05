@@ -2,11 +2,14 @@
     {
         "lbl":"User Name",
         "lblCols":"5",
-        "name":"text",
+        "name":"uid",
         "type":"text",
         "errMsgCols":"4",
         "errorMsg":"Enter user Id",
-        "inputCols":"3"
+        "inputCols":"3",
+        "hasError":false,
+        "value":"",
+        "isRequired":true
     },
     {
         "lbl":"Password",
@@ -15,6 +18,9 @@
         "type":"password",
         "errMsgCols":"4",
         "errorMsg":"Enter password",
-        "inputCols":"3"
+        "inputCols":"3",
+        "hasError":false,
+        "value":"",
+        "isRequired":true
     }
 ]
