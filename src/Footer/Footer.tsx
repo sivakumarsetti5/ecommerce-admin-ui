@@ -1,7 +1,8 @@
 import React from 'react'
+import styles from './Footer.module.css'
 
 export const Footer = () => {
     return (
-        <div className='bg-primary position-fixed bottom-0 w-100 text-center text-white p-2'>&copy; rights belongs to me</div>
+        <div className={`position-fixed bottom-0 w-100 text-center p-2 ${styles.footer}`}>Copyright © Sivakumar All Rights Reserved.</div>
     )
 }

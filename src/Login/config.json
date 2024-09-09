@@ -5,11 +5,15 @@
         "name":"uid",
         "type":"text",
         "errMsgCols":"4",
-        "errorMsg":"Enter user Id",
+        "errorMsg":"",
         "inputCols":"3",
         "hasError":false,
         "value":"",
-        "isRequired":true
+        "isRequired":true,
+        "criteria":[
+            "REQUIRED",
+            "EMAIL"
+        ]
     },
     {
         "lbl":"Password",
@@ -17,10 +21,14 @@
         "name":"Password",
         "type":"password",
         "errMsgCols":"4",
-        "errorMsg":"Enter password",
+        "errorMsg":"",
         "inputCols":"3",
         "hasError":false,
         "value":"",
-        "isRequired":true
+        "isRequired":true,
+        "criteria":[
+            "REQUIRED",
+            "MIN5CHAR"
+        ]
     }
 ]
