@@ -3,18 +3,31 @@ import {appCtx} from '../context/appCtx'
 import { Input } from '@/common/components/Input'
 import config  from './config.json'
 import { handleFieldLevelValidation, handleFormLevelValidation } from '@/common/services/validations'
+import axios from 'axios'
+import Ajax from '@/common/services/ajax'
+import { updateStoreData } from '@/common/services/functions'
 
 export const Login = () => {
     const[inputControls,setinputControls] = useState(config)
-    const ctxData = useContext(appCtx)
-    const fnLogin = () => {
-        const[isInvalid,dataObj]:any = handleFormLevelValidation(inputControls,setinputControls)
+    const {dispatch} = useContext(appCtx)
+    const fnLogin = async() => {
+        try{
+        const[isInvalid,data]:any = handleFormLevelValidation(inputControls,setinputControls)
         if (isInvalid) return
-        alert(`Sending data to the server ${JSON.stringify(dataObj)}`)    //if valid form then send the data to server
-        // ctxData.dispatch({     
-        //     type: "LOGIN",
-        //     payload: true
-        // })
+        updateStoreData(dispatch,"LOADER",true)
+        const response = await Ajax.post("auth/login",{data})
+        //console.log(response)
+        if(response?.data?.length >0){
+            updateStoreData(dispatch,"LOGIN",true)
+        }else{
+            alert("please enter valid uid or password")
+        }
+    }catch(ex){
+
+    }finally{
+        updateStoreData(dispatch,"LOADER",false)
+    }
+    //alert(`Sending data to the server ${JSON.stringify(dataObj)}`)    //if valid form then send the data to server 
     }
     const handleChange = (event:any) =>{
         handleFieldLevelValidation(event,inputControls,setinputControls)

@@ -18,7 +18,7 @@
     {
         "lbl":"Password",
         "lblCols":"5",
-        "name":"Password",
+        "name":"pwd",
         "type":"password",
         "errMsgCols":"4",
         "errorMsg":"",

@@ -44,7 +44,7 @@ export function handleFormLevelValidation(inputControls:any,setInputControls:any
             dataObj[obj.name] = obj.value
             validate(obj)                           //if data is there then update hasError is false otherwise true
         })
-        setInputControls(clonedInputControls)
         const isInValid = clonedInputControls.some((obj:any)=> obj.errorMsg) //If any of the input object with hasError is true then it is invalid
-    return[isInValid,dataObj]
+        setInputControls(clonedInputControls)
+        return[isInValid,dataObj]
 }
