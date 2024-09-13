@@ -20,7 +20,11 @@ export const Login = () => {
         if(response?.data?.length >0){
             updateStoreData(dispatch,"LOGIN",true)
         }else{
-            alert("please enter valid uid or password")
+            updateStoreData(dispatch,"TOASTER",{
+                isShowToaster:true,
+                toasterMsg:"Check the uid and pwd",
+                color:'red'
+            })
         }
     }catch(ex){
 
