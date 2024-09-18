@@ -6,6 +6,7 @@ import { handleFieldLevelValidation, handleFormLevelValidation } from '@/common/
 import axios from 'axios'
 import Ajax from '@/common/services/ajax'
 import { updateStoreData } from '@/common/services/functions'
+import { AppCookies } from '@/common/services/cookies'
 
 export const Login = () => {
     const[inputControls,setinputControls] = useState(config)
@@ -19,6 +20,12 @@ export const Login = () => {
         //console.log(response)
         if(response?.data?.length >0){
             updateStoreData(dispatch,"LOGIN",true)
+            console.log('loginData',response?.data)
+
+            const {_id,uid}=response?.data?.[0] || {}
+            AppCookies.setCookie("id",_id,10)
+            AppCookies.setCookie('uid',uid,10)
+            
         }else{
             updateStoreData(dispatch,"TOASTER",{
                 isShowToaster:true,
