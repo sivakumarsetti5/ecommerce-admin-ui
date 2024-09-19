@@ -1,7 +1,28 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import menuItems from './config.json'
+import Link from 'next/link'
+import styles from './Menu.module.css'
 
 export const Menu = () => {
+    const[isMobileView,setIsMobileView] = useState(document.body.offsetWidth<700)
+    function handleResize(){
+        window.addEventListener('resize',()=>{
+            setIsMobileView(document.body.offsetWidth<700)
+        })
+    }
+    useEffect(()=>{
+        handleResize()
+    },[])
     return (
-        <div>Menu</div>
+        <>
+        {isMobileView && <button>Menu</button>}
+        <ul className={styles.menu}>
+            {
+            menuItems?.map(({id,name,path})=>{
+                return <li><Link id={id} href={path}>{name}</Link></li>
+            })
+            }
+        </ul>
+        </>
     )
 }
