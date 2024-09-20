@@ -1,12 +1,13 @@
+"use client"
 import React, { useContext, useState } from 'react'
-import {appCtx} from '../context/appCtx'
-import { Input } from '@/common/components/Input'
+import {appCtx} from '@/context/appCtx'
+import { Input } from '@/components/shared/Input'
 import config  from './config.json'
-import { handleFieldLevelValidation, handleFormLevelValidation } from '@/common/services/validations'
+import { handleFieldLevelValidation, handleFormLevelValidation } from '@/services/validations'
 import axios from 'axios'
-import Ajax from '@/common/services/ajax'
-import { updateStoreData } from '@/common/services/functions'
-import { AppCookies } from '@/common/services/cookies'
+import Ajax from '@/services/ajax'
+import { updateStoreData } from '@/services/functions'
+import { AppCookies } from '@/services/cookies'
 
 export const Login = () => {
     const[inputControls,setinputControls] = useState(config)
