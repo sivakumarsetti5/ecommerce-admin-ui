@@ -21,7 +21,7 @@ export class AppCookies {
     static deleteAllCookies(){
         const cookieObj = getCookiesObj()
         for(let key in cookieObj){
-            document.cookie = `${key}=:expires=${getPrevDate()}`
+            document.cookie = `${key}=;expires=${getPrevDate()}`
         }
     }
     static isUserLoggedIn(){

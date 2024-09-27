@@ -8,6 +8,12 @@ export const reducer = (state, action) => {
                 isLoggedIn: action.payload
             }
             break
+        case 'MODAL':
+            state = {
+                ...state,
+                modal:action.payload
+            }
+            break 
         case 'LOADER':
             state = {
                 ...state,
