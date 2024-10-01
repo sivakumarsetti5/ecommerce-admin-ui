@@ -7,7 +7,7 @@ export const AppTable = ({ths,data,tds}:any) => {
             <thead>
                 <tr>
                     {ths?.map((val:any,index:any)=>{
-                        return <th id={`th ${index}`}>{val}</th>
+                        return <th key={`th ${index}`}>{val}</th>
                     })}
                     <th>Edit</th>
                     <th>Delete</th>
@@ -15,9 +15,9 @@ export const AppTable = ({ths,data,tds}:any) => {
             </thead>
             <tbody>
                 {data?.map((obj:any,index:any)=>{
-                    return <tr id={`tr ${index}`}>
+                    return <tr key={`tr ${index}`}>
                         {tds?.map((val:any,index:any)=>{
-                            return <td id={`td ${index}`}>{obj[val]}</td>
+                            return <td key={`td ${index}`}>{obj[val]}</td>
                         })}
                         <td><button>Edit</button></td>
                         <td><button>Delete</button></td>
