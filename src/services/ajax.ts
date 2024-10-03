@@ -7,8 +7,8 @@ class Ajax {
     static post(url:string,data :any){
         return axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}${url}`,data)
     }
-    static put(){
-
+    static put(url:string,data :any){
+        return axios.put(`${process.env.NEXT_PUBLIC_BASE_URL}${url}`,data)
     }
     static delete(){
 

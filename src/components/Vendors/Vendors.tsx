@@ -6,10 +6,13 @@ import { AppForm } from '../shared/AppForm'
 import Ajax from '@/services/ajax'
 import { appCtx } from '@/context/appCtx'
 import { updateStoreData } from '@/services/functions'
-
+import { VendorForm } from './VendorForm'
 export const Vendors = () => {
   const [vendorsList,setVendorsList] = useState([])
   const[isShowForm,setIsShowForm] = useState(false)
+  const[rowData,setRowData] = useState({})
+  const[isEdit,setIsEdit] = useState(false)
+  
 
   const{dispatch}= useContext(appCtx)
 
@@ -28,10 +31,21 @@ export const Vendors = () => {
       updateStoreData(dispatch,'LOADER',false)
     }
   }
+  const fnEdit = (row:any)=>{
+    // console.log(row)
+    setIsEdit(true)
+    setRowData(row)
+    setIsShowForm(true)
+
+  }
+  const fnDelete = ()=>{
+    alert("Delete")
+  }
 
   useEffect(()=>{
     getVendorsList()
   },[])
+
 
   return (
     <div>
@@ -42,10 +56,13 @@ export const Vendors = () => {
          ths = {["Id","Uid","Password","Phone","Address"]}
          data={vendorsList}
          tds={["_id","uid","pwd","phone","address"]}
+         handleEdit={fnEdit}
+         handleDelete={fnDelete}
+         
       />
       {isShowForm && 
       <AppForm setIsShowForm={setIsShowForm}>
-        <div>SivaKumar</div>
+        <VendorForm setIsShowForm={setIsShowForm} getVendorsList={getVendorsList} rowData={rowData} isEdit={isEdit}/>
       </AppForm>}
     </div>
   )
