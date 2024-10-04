@@ -30,7 +30,7 @@ export const AppTable = ({ths,data,tds,handleEdit,handleDelete}:any) => {
                             return <td key={`td ${index}`}>{obj[val]}</td>
                         })}
                         <td><button onClick={()=>handleEdit(obj)}>Edit</button></td>
-                        <td><button onClick={handleDelete}>Delete</button></td>
+                        <td><button onClick={()=>handleDelete(obj)}>Delete</button></td>
                     </tr>
                 })}
             </tbody>

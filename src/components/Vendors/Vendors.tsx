@@ -38,8 +38,38 @@ export const Vendors = () => {
     setIsShowForm(true)
 
   }
-  const fnDelete = ()=>{
-    alert("Delete")
+  const fnHandleDelete = async(id:string)=>{
+        try{
+          updateStoreData(dispatch,"LOADER",true)
+          const res = await Ajax.delete(`vendor/delete/${id}`)
+          const{acknowledged,deletedCount} = res?.data
+          if(acknowledged && deletedCount){
+            getVendorsList()
+            updateStoreData(dispatch, 'TOASTER', {
+                isShowToaster: true,
+                toasterMsg: 'Deleted !!!',
+                color: 'green'
+            })
+          }
+        }catch(ex){
+          console.error('vendor form',ex)
+          updateStoreData(dispatch, 'TOASTER', {
+            isShowToaster: true,
+            toasterMsg: 'Not Deleted !!!',
+            color: 'red'
+        })
+        }finally{
+          updateStoreData(dispatch,"LOADER",false)
+        }
+  }
+
+  const fnDelete = (row:any)=>{
+    alert(row._id)
+    updateStoreData(dispatch,'MODAL',{
+      isShowModal:true,
+      modalAction:()=>fnHandleDelete(row._id)
+    })
+    
   }
 
   useEffect(()=>{

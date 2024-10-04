@@ -1,6 +1,10 @@
+.header_container{
+    background-color: #19398a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .header{
     font-size: 30px;
-    background-color: #19398a;
-    color: white;
     font-family: cursive;
 }

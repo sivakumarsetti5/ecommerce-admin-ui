@@ -10,8 +10,8 @@ class Ajax {
     static put(url:string,data :any){
         return axios.put(`${process.env.NEXT_PUBLIC_BASE_URL}${url}`,data)
     }
-    static delete(){
-
+    static delete(url:string){
+        return axios.delete(`${process.env.NEXT_PUBLIC_BASE_URL}${url}`)
     }
     static patch(){
 
