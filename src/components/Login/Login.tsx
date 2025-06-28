@@ -39,7 +39,8 @@ export const Login = () => {
     }finally{
         updateStoreData(dispatch,"LOADER",false)
     }
-    //alert(`Sending data to the server ${JSON.stringify(dataObj)}`)    //if valid form then send the data to server 
+    //alert(`Sending data to the server ${JSON.stringify(dataObj)}`)    
+    // //if valid form then send the data to server 
     }
     const handleChange = (event:any) =>{
         handleFieldLevelValidation(event,inputControls,setinputControls)

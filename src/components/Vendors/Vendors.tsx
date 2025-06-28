@@ -32,7 +32,7 @@ export const Vendors = () => {
     }
   }
   const fnEdit = (row:any)=>{
-    // console.log(row)
+    //console.log(row)
     setIsEdit(true)
     setRowData(row)
     setIsShowForm(true)
